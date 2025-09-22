@@ -50,8 +50,8 @@ The project implements authentication with **Spring Security + JWT**, email veri
 
 1. **Clone the repository**  
    ```bash
-   git clone https://github.com/your-username/java-payment-app.git
-   cd java-payment-app
+   git clone https://github.com/your-username/payment-app.git
+   cd payment-app
    ```
 
 2. **Start the MySQL container with Docker**  
