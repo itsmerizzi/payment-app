@@ -1,6 +1,6 @@
 package com.itsmerizzi.payment_system.controller;
 
-import com.itsmerizzi.payment_system.dto.UserRequest;
+import com.itsmerizzi.payment_system.dto.UserCreateRequest;
 import com.itsmerizzi.payment_system.dto.UserResponse;
 import com.itsmerizzi.payment_system.entity.User;
 import com.itsmerizzi.payment_system.service.UserService;
@@ -11,15 +11,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/api/v1/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @PostMapping
-    public ResponseEntity<UserResponse> registerUser(@RequestBody @Valid UserRequest userRequest) {
-        User user = userRequest.toModel();
+    @PostMapping("/register")
+    public ResponseEntity<UserResponse> registerUser(@RequestBody @Valid UserCreateRequest userCreateRequest) {
+        User user = userCreateRequest.toModel();
         UserResponse savedUser = userService.registerUser(user);
         return ResponseEntity.ok().body(savedUser);
     }
